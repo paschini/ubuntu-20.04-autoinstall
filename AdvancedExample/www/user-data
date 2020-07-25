@@ -1,0 +1,22 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: sv
+    variant: sv
+  identity:
+    hostname: ubuntu
+    password: "$the-crypted-paswd"
+    username: ubuntu
+  ssh: install-server: yes
+  authorized-keys:
+    - $key
+    allow-pw: yes
+  user-data:
+    timezone: Europe/Stockholm
+    disable_root: false
+    chpasswd:
+      list: |
+        root:HASHEDPASSWD
+
